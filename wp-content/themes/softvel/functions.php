@@ -44,7 +44,11 @@ if ( ! function_exists( 'softvel_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'softvel' ),
+			'Main_Menu' => esc_html__( 'Main_Menu', 'softvel' ),
+			'Advertising_Menu' => esc_html__( 'Advertising_Menu', 'softvel' ),
+			'Kopirayt_Menu' => esc_html__( 'Kopirayt_Menu', 'softvel' ),
+			'WebDes_Menu' => esc_html__( 'WebDes_Menu', 'softvel' ),
+			'WebDev_Menu' => esc_html__( 'WebDev_Menu', 'softvel' ),
 		) );
 
 		/*
@@ -116,6 +120,288 @@ function softvel_widgets_init() {
 }
 add_action( 'widgets_init', 'softvel_widgets_init' );
 
+// Register Custom Post Type
+
+function faq() {
+
+	$labels = array(
+		'name'                  => _x( 'faq', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'faq', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'FAQ', 'text_domain' ),
+		'name_admin_bar'        => __( 'Post Type', 'text_domain' ),
+		'archives'              => __( 'Item Archives', 'text_domain' ),
+		'attributes'            => __( 'Item Attributes', 'text_domain' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
+		'all_items'             => __( 'All Items', 'text_domain' ),
+		'add_new_item'          => __( 'Add New Item', 'text_domain' ),
+		'add_new'               => __( 'Добавить faq', 'text_domain' ),
+		'new_item'              => __( 'новое faq', 'text_domain' ),
+		'edit_item'             => __( 'Edit Item', 'text_domain' ),
+		'update_item'           => __( 'Update Item', 'text_domain' ),
+		'view_item'             => __( 'View Item', 'text_domain' ),
+		'view_items'            => __( 'View Items', 'text_domain' ),
+		'search_items'          => __( 'Search Item', 'text_domain' ),
+		'not_found'             => __( 'нет портфолио', 'text_domain' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+		'featured_image'        => __( 'Featured Image', 'text_domain' ),
+		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+		'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+		'items_list'            => __( 'Items list', 'text_domain' ),
+		'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'FAQ', 'text_domain' ),
+		'description'           => __( 'FAQ', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor' ),
+		'taxonomies'            => array( '' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+		'supports' => array(
+            'title', // Заголовок объекта типа записи.
+            'editor', // Редактор контента.
+            'thumbnail', // Миниатюра.
+            'excerpt', // Цитата, отрывок.
+            'trackbacks', // Отправить обратные ссылки.
+            'custom-fields', // Произвольные поля.
+            'page-attributes', // Атрибуты.
+            'post-formats', // Формат записи.
+        ),
+	);
+	register_post_type( 'faq', $args );
+
+}
+add_action( 'init', 'faq', 0 );
+
+// 
+function portfolio() {
+
+	$labels = array(
+		'name'                  => _x( 'portfolio', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'portfolio', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Портфолио', 'text_domain' ),
+		'name_admin_bar'        => __( 'Post Type', 'text_domain' ),
+		'archives'              => __( 'Item Archives', 'text_domain' ),
+		'attributes'            => __( 'Item Attributes', 'text_domain' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
+		'all_items'             => __( 'All Items', 'text_domain' ),
+		'add_new_item'          => __( 'Add New Item', 'text_domain' ),
+		'add_new'               => __( 'Добавить портфолио', 'text_domain' ),
+		'new_item'              => __( 'новое портфолио', 'text_domain' ),
+		'edit_item'             => __( 'Edit Item', 'text_domain' ),
+		'update_item'           => __( 'Update Item', 'text_domain' ),
+		'view_item'             => __( 'View Item', 'text_domain' ),
+		'view_items'            => __( 'View Items', 'text_domain' ),
+		'search_items'          => __( 'Search Item', 'text_domain' ),
+		'not_found'             => __( 'нет портфолио', 'text_domain' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+		'featured_image'        => __( 'Featured Image', 'text_domain' ),
+		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+		'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+		'items_list'            => __( 'Items list', 'text_domain' ),
+		'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'portfolio', 'text_domain' ),
+		'description'           => __( 'Портфолио', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor' ),
+		'taxonomies'            => array( 'taxonomyPortfolio' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+		'supports' => array(
+            'title', // Заголовок объекта типа записи.
+            'editor', // Редактор контента.
+            'thumbnail', // Миниатюра.
+            'excerpt', // Цитата, отрывок.
+            'trackbacks', // Отправить обратные ссылки.
+            'custom-fields', // Произвольные поля.
+            'page-attributes', // Атрибуты.
+            'post-formats', // Формат записи.
+        ),
+	);
+	register_post_type( 'portfolio', $args );
+
+}
+add_action( 'init', 'portfolio', 0 );
+
+// Register Custom Taxonomy
+function taxonomyPortfolio() {
+
+	$labels = array(
+		'name'                       => _x( 'Portfolio', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'Portfolio', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'Портфолио', 'text_domain' ),
+		'all_items'                  => __( 'All Items', 'text_domain' ),
+		'parent_item'                => __( 'Parent Item', 'text_domain' ),
+		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
+		'new_item_name'              => __( 'New Item Name', 'text_domain' ),
+		'add_new_item'               => __( 'Add New Item', 'text_domain' ),
+		'edit_item'                  => __( 'Edit Item', 'text_domain' ),
+		'update_item'                => __( 'Update Item', 'text_domain' ),
+		'view_item'                  => __( 'View Item', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+		'popular_items'              => __( 'Popular Items', 'text_domain' ),
+		'search_items'               => __( 'Search Items', 'text_domain' ),
+		'not_found'                  => __( 'Not Found', 'text_domain' ),
+		'no_terms'                   => __( 'No items', 'text_domain' ),
+		'items_list'                 => __( 'Items list', 'text_domain' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'text_domain' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'taxonomyPortfolio', array( 'portfolio' ), $args );
+
+}
+add_action( 'init', 'taxonomyPortfolio', 0 );
+
+// Кастомные поля
+add_action('customize_register', function($customizer){
+    $customizer->add_section(
+        'example_section_one',
+        array(
+            'title' => 'Контакты',
+            'description' => 'Введите ваши контакты',
+            'priority' => 11,
+        )
+    );
+// num1
+    $customizer->add_setting(
+    'number1'
+	);
+
+	$customizer->add_control(
+    'number1',
+    array(
+        'label' => 'Номер телефона1',
+        'section' => 'example_section_one',
+        'type' => 'text',
+    )
+	);
+// num2
+	$customizer->add_setting(
+    'number2'
+	);
+
+	$customizer->add_control(
+    'number2',
+    array(
+        'label' => 'Номер телефона2',
+        'section' => 'example_section_one',
+        'type' => 'text',
+    )
+	);
+// E-mail
+	$customizer->add_setting(
+    'email'
+	);
+
+	$customizer->add_control(
+    'email',
+    array(
+        'label' => 'E-mail',
+        'section' => 'example_section_one',
+        'type' => 'text',
+    )
+	);
+// адрес
+	$customizer->add_setting(
+    'adress'
+	);
+
+	$customizer->add_control(
+    'adress',
+    array(
+        'label' => 'Адрес',
+        'section' => 'example_section_one',
+        'type' => 'text',
+    )
+	);
+// Facebook
+	$customizer->add_setting(
+    'facebook'
+	);
+
+	$customizer->add_control(
+    'facebook',
+    array(
+        'label' => 'Facebook',
+        'section' => 'example_section_one',
+        'type' => 'text',
+    )
+	);
+// LinkedIn
+	$customizer->add_setting(
+    'linkedin'
+	);
+
+	$customizer->add_control(
+    'linkedin',
+    array(
+        'label' => 'LinkedIn',
+        'section' => 'example_section_one',
+        'type' => 'text',
+    )
+	);
+// подпись footer
+	$customizer->add_setting(
+    'footer_text'
+	);
+
+	$customizer->add_control(
+    'footer_text',
+    array(
+        'label' => 'Подпись футер',
+        'section' => 'example_section_one',
+        'type' => 'text',
+    )
+	);
+});
+
+// удаление span в contact form7
+add_filter('wpcf7_form_elements', function($content) {
+    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+
+    return $content;
+});
+// 
 /**
  * Enqueue scripts and styles.
  */

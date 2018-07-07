@@ -9,20 +9,30 @@
 			
 	</div>
 	<menu class="top_menu">
+
 				<nav>
-					<ul>
+				<?php
+									wp_nav_menu( array(
+										'theme_location' => 'Main_Menu',
+										'menu_id'        => '',
+										'menu_class'        => 'header_menu_ul',
+										'container'      => '', 
+										'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									) );
+				?>
+					<!-- <ul>
 						<li><a href="#">Номер №1</a></li>
 						<li><a href="#">Номер №2</a></li>
 						<li><a href="#">Номер №3</a></li>
 						<li><a href="#">Номер №4</a></li>
 						<li><a href="#">Номер №5</a></li>
-					</ul>
+					</ul> -->
 				</nav>
 			</menu>
 	<div class="logo_header">
-		<h1 class="logo_header_h1">SOFTVEL</h1>
+		<h1 class="logo_header_h1"><?php the_field('title_header'); ?></h1>
 		<hr class="logo_header_hr">
-		<h2 class="logo_header_h2">Web & IOS and Android development</h2>
+		<h2 class="logo_header_h2"><?php the_field('description_header'); ?></h2>
 	</div>
 	<div class="curve_block">
 		<a href="#go">

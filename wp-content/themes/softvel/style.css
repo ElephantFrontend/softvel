@@ -131,13 +131,18 @@ input{
 .application_window_active{
 	transform: translate(-50%, -50%);
 }
-.form_send_request{
+/*.form_send_request{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}*/
+#wpcf7-f144-o1 .wpcf7-form, #wpcf7-f144-o2 .wpcf7-form{
 	margin-top: 20px;
 	margin-bottom: 20px;
 	overflow: hidden;
 }
 /**/
-.form_send_contact{
+/*.form_send_contact{
 	width: 800px;
 	margin: 0 auto;
 	margin-top: 50px;
@@ -163,16 +168,63 @@ input{
 	background-color: rgba(0,0,0,0.8);
 	border: 1px solid #757575;
 	color: white;
+}*/
+#wpcf7-f145-o3 .wpcf7-form{
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 50px;
+	color: white;
+}
+.wpcf7-form br{
+	display: none;
+}
+#wpcf7-f145-o3 .wpcf7-form input, #wpcf7-f145-o3 .wpcf7-form textarea{
+	margin-top: 10px;
+}
+ #wpcf7-f145-o3 .wpcf7-form textarea, #wpcf7-f145-o3 .wpcf7-form .send_request_name , #wpcf7-f145-o3 .wpcf7-form .send_request_subject{
+ 	background-color: rgba(0,0,0,0.8);
+	border: 1px solid #757575;
+	color: white;
+ }
+#wpcf7-f145-o3 .wpcf7-form .send_request_submit{
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	color: black;
+	margin-top: 50px !important;
+}
+#wpcf7-f145-o3 .wpcf7-form .send_request_email{
+	padding: 5px;
+	width: 100%;
+	background-color: rgba(0,0,0,0.8);
+	border: 1px solid #757575;
+	color: white;
 }
 /**/
-.form_send_request input, .form_send_request textarea{
-	/*padding: 5px;*/
+/*.form_send_request input, .form_send_request textarea{
 	margin-top: 10px;
 }
 .form_send_request p input{
 	display: inline-block;
 	width: 48.2%;
 	padding: 5px;
+}*/
+#wpcf7-f144-o1 .wpcf7-form input, #wpcf7-f144-o1 .wpcf7-form textarea, #wpcf7-f144-o2 input, #wpcf7-f144-o2 textarea{
+	/*padding: 5px;*/
+	margin-top: 10px;
+}
+/*#wpcf7-f144-o1 .wpcf7-form p input{
+	display: inline-block;
+	width: 48.2%;
+	padding: 5px;
+}*/
+#wpcf7-f144-o1 .wpcf7-form .send_request_tel, #wpcf7-f144-o1 .wpcf7-form .send_request_email, #wpcf7-f144-o2 .wpcf7-form .send_request_tel, #wpcf7-f144-o2 .wpcf7-form .send_request_email{
+	width:48%;	
+	float: left;
+	padding: 5px;
+}
+#wpcf7-f144-o1 .wpcf7-form .send_request_tel, #wpcf7-f144-o2 .wpcf7-form .send_request_tel{
+	margin-right: 4%;
 }
 .send_request_subject{
 	width: 100%;
@@ -196,7 +248,7 @@ input{
 }
 .send_request_name{
 	display: inline-block;
-	width: 100%;
+	width: 100% !important;
 	padding: 5px;
 }
 /*fidback_window (модальное окно "обратная связь")*/
@@ -1745,7 +1797,10 @@ footer{
 	.application_window{
 		width: 400px;
 	}
-	.form_send_request p input{
+	/*.form_send_request p input{
+		width: 100%;
+	}*/
+	#wpcf7-f144-o1 .wpcf7-form p input, #wpcf7-f144-o2 .wpcf7-form p input{
 		width: 100%;
 	}
 	.portfolio_block{

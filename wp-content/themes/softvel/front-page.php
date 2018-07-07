@@ -13,13 +13,22 @@
 					<img src="<?php bloginfo('template_url'); ?>/img/icons/uslugi-copyrighting-yellow.svg" alt="">
 					 <hr>
 					 <nav class="service_menu">
-					 	<ul>
+					 	<?php
+									wp_nav_menu( array(
+										'theme_location' => 'Kopirayt_Menu',
+										'menu_id'        => '',
+										'menu_class'        => 'header_menu_ul',
+										'container'      => '', 
+										'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									) );
+						?>
+					 	<!-- <ul>
 					 		<li><a href="#">Корпоративный сайт</a></li>
 					 		<li><a href="#">Сайт "Визитка"</a></li>
 					 		<li><a href="#">Landing Page</a></li>
 					 		<li><a href="#">Интернет-магазин</a></li>
 					 		<li><a href="#">Многостраничник</a></li>
-					 	</ul>
+					 	</ul> -->
 					 </nav>
 				</div>
 			</div>
@@ -32,13 +41,22 @@
 					<img src="<?php bloginfo('template_url'); ?>/img/icons/uslugi-design-yellow.svg" alt="">
 					 <hr>
 					 <nav class="service_menu">
-					 	<ul>
+					 	<?php
+									wp_nav_menu( array(
+										'theme_location' => 'WebDes_Menu',
+										'menu_id'        => '',
+										'menu_class'        => 'header_menu_ul',
+										'container'      => '', 
+										'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									) );
+						?>
+					 	<!-- <ul>
 					 		<li><a href="#">Корпоративный сайт</a></li>
 					 		<li><a href="#">Сайт "Визитка"</a></li>
 					 		<li><a href="#">Landing Page</a></li>
 					 		<li><a href="#">Интернет-магазин</a></li>
 					 		<li><a href="#">Многостраничник</a></li>
-					 	</ul>
+					 	</ul> -->
 					 </nav>
 				</div>
 			</div>
@@ -53,13 +71,22 @@
 					<img src="<?php bloginfo('template_url'); ?>/img/icons/uslugi-ios-android-dev-yellow.svg" alt="">
 					 <hr>
 					 <nav class="service_menu">
-					 	<ul>
+					 	<?php
+									wp_nav_menu( array(
+										'theme_location' => 'Kopirayt_Menu',
+										'menu_id'        => '',
+										'menu_class'        => 'header_menu_ul',
+										'container'      => '', 
+										'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									) );
+						?>
+					 	<!-- <ul>
 					 		<li><a href="#">Корпоративный сайт</a></li>
 					 		<li><a href="#">Сайт "Визитка"</a></li>
 					 		<li><a href="#">Landing Page</a></li>
 					 		<li><a href="#">Интернет-магазин</a></li>
 					 		<li><a href="#">Многостраничник</a></li>
-					 	</ul>
+					 	</ul> -->
 					 </nav>
 				</div>
 			</div>
@@ -74,13 +101,22 @@
 					<img src="<?php bloginfo('template_url'); ?>/img/icons/uslugi-reklama-yellow.svg" alt="">
 					 <hr>
 					 <nav class="service_menu">
-					 	<ul>
+					 	<?php
+									wp_nav_menu( array(
+										'theme_location' => 'Advertising_Menu',
+										'menu_id'        => '',
+										'menu_class'        => 'header_menu_ul',
+										'container'      => '', 
+										'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									) );
+						?>
+					 	<!-- <ul>
 					 		<li><a href="#">Корпоративный сайт</a></li>
 					 		<li><a href="#">Сайт "Визитка"</a></li>
 					 		<li><a href="#">Landing Page</a></li>
 					 		<li><a href="#">Интернет-магазин</a></li>
 					 		<li><a href="#">Многостраничник</a></li>
-					 	</ul>
+					 	</ul> -->
 					 </nav>
 				</div>
 			</div>
@@ -93,13 +129,22 @@
 					<img src="<?php bloginfo('template_url'); ?>/img/icons/uslugi-sayti-yellow.svg" alt="">
 					 <hr>
 					 <nav class="service_menu">
-					 	<ul>
+					 	<?php
+									wp_nav_menu( array(
+										'theme_location' => 'WebDev_Menu',
+										'menu_id'        => '',
+										'menu_class'        => 'header_menu_ul',
+										'container'      => '', 
+										'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									) );
+						?>
+					 	<!-- <ul>
 					 		<li><a href="#">Корпоративный сайт</a></li>
 					 		<li><a href="#">Сайт "Визитка"</a></li>
 					 		<li><a href="#">Landing Page</a></li>
 					 		<li><a href="#">Интернет-магазин</a></li>
 					 		<li><a href="#">Многостраничник</a></li>
-					 	</ul>
+					 	</ul> -->
 					 </nav>
 				</div>
 			</div>
@@ -186,7 +231,26 @@
 <!-- Стек -->
 <div class="steck">
 	<div class="steck_block">
-		<img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/ae.png" alt="">
+	<?php 
+		$images = acf_photo_gallery('stek', $post->ID);
+		if( count($images) ):
+        foreach($images as $image):
+            $id = $image['id'];
+            $title = $image['title']; 
+            $caption= $image['caption'];
+            $full_image_url= $image['full_image_url']; 
+            $full_image_url = acf_photo_gallery_resize_image($full_image_url, 262, 160); 
+            $thumbnail_image_url= $image['thumbnail_image_url']; 
+            $url= $image['url']; 
+            $target= $image['target']; 
+            $alt = get_field('photo_gallery_alt', $id); 
+            $class = get_field('photo_gallery_class', $id);
+	?>
+		<?php if( !empty($url) ){ ?> <?php } ?>
+           <img class="steck_img" src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
+        <?php if( !empty($url) ){ ?><?php } ?>
+		<?php endforeach; endif; ?>
+		<!-- <img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/ae.png" alt="">
 		<img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/Bootstrap-logo.png" alt="">
 		<img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/css3-logo.png" alt="">
 		<img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/Git-logo.png" alt="">
@@ -203,11 +267,11 @@
 		<img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/sass-logo.png" alt="">
 		<img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/SketchUp-Logo.png" alt="">
 		<img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/Sony-Vegas-Pro-Logo.png" alt="">
-		<img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/wordpress-logo.png" alt="">
+		<img class="steck_img" src="<?php bloginfo('template_url'); ?>/img/steck/wordpress-logo.png" alt=""> -->
 	</div>
 		<div class="nda">
 			<p class="text_big text_bold">NDA</p>
-			<p class="">Будь-яка інформація надана клієнтом нашим співробітникам в усній, письмовій або електронній формі в процесі роботи над проектом є конфіденційною і не буде розголошена третім сторонам без згоди клієнта! Довіра наших клієнтів - дуже важлива для нас!</p>
+			<p class=""><?php the_field('content_nda'); ?></p>
 		</div>
 </div>
 <?php get_footer(); ?>

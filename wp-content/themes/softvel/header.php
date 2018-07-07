@@ -22,7 +22,8 @@
 <div class="application_window_wrapper"></div>
 		<div class="application_window">
 				<p class="text_big text_bold">ОТПРАВИТЬ ЗАЯВКУ</p>
-				<form class="form_send_request" action="" method="post">
+				<?php echo do_shortcode( '[contact-form-7 id="144" title="Application form"]' ); ?> 
+				<!-- <form class="form_send_request" action="" method="post">
 					<input class="send_request_name" type="text" name="name" placeholder="Ф.И.О">
 					<p>
 						<input class="send_request_tel" type="tel" name="phone" placeholder ="Телефон">
@@ -31,14 +32,15 @@
 					<input class="send_request_subject" type="text" name="subject" placeholder="Тема">
 					<textarea class="send_request_message" name="message" id="" cols="" rows="6" placeholder="Собщение..."></textarea>
 					<input class="send_request_submit" type="submit" value="Отправить">
-				</form>
+				</form> -->
 				<p class="intermediate_text">или позвоните нам:</p>
 				<p class="text_big text_bold">+38 (063) 602-45-28</p>
 				<p class="text_big text_bold">+38 (094) 821-62-54</p>
 		</div>
 	<div class="fidback_window">
 		<p class="text_big text_bold">ОБРАТНАЯ СВЯЗЬ</p>
-				<form class="form_send_request" action="" method="post">
+				<?php echo do_shortcode( '[contact-form-7 id="144" title="Application form"]' ); ?>
+				<!-- <form class="form_send_request" action="" method="post">
 					<input class="send_request_name" type="text" name="name" placeholder="Ф.И.О">
 					<p>
 						<input class="send_request_tel" type="tel" name="phone" placeholder ="Телефон">
@@ -47,5 +49,5 @@
 					<input class="send_request_subject" type="text" name="subject" placeholder="Тема">
 					<textarea class="send_request_message" name="message" id="" cols="" rows="6" placeholder="Собщение..."></textarea>
 					<input class="send_request_submit" type="submit" value="Отправить">
-				</form>
+				</form> -->
 	</div>

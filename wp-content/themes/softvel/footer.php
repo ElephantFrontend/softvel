@@ -16,13 +16,13 @@
 		<div class="contackts_block contackts_block_toggle">
 			<p>АДРЕСС ЦЕНТРАЛЬНОГО ОФИСА:</p>
 			<hr>
-			<p class="contackts_block_info"><img src="<?php bloginfo('template_url'); ?>/img/icons/adress-yellow.svg" alt="">ул.Большая Васильковская 9/2</p>
-			<p class="contackts_block_info"><img src="<?php bloginfo('template_url'); ?>/img/icons/mail-zalivka-yellow.svg" alt="">info@softvel.com</p>
-			<p class="contackts_block_info"><img src="<?php bloginfo('template_url'); ?>/img/icons/phone-yellow.svg" alt="">+38 063 602 45 28</p>
-			<p class="contackts_block_info"><img src="<?php bloginfo('template_url'); ?>/img/icons/phone-yellow.svg" alt="">+38 063 602 45 28</p>
+			<p class="contackts_block_info"><img src="<?php bloginfo('template_url'); ?>/img/icons/adress-yellow.svg" alt=""><?php echo get_theme_mod('adress'); ?></p>
+			<p class="contackts_block_info"><img src="<?php bloginfo('template_url'); ?>/img/icons/mail-zalivka-yellow.svg" alt=""><?php echo get_theme_mod('email'); ?></p>
+			<p class="contackts_block_info"><img src="<?php bloginfo('template_url'); ?>/img/icons/phone-yellow.svg" alt=""><?php echo get_theme_mod('number1'); ?></p>
+			<p class="contackts_block_info"><img src="<?php bloginfo('template_url'); ?>/img/icons/phone-yellow.svg" alt=""><?php echo get_theme_mod('number2'); ?></p>
 			<p class="soc_icons">
-				<a href="#"><img src="<?php bloginfo('template_url'); ?>/img/icons/icon-fb.svg" alt=""></a> 
-				<a href="#"><img src="<?php bloginfo('template_url'); ?>/img/icons/icons-linkedin.svg" alt=""></a>
+				<a href="<?php echo get_theme_mod('facebook'); ?>"><img src="<?php bloginfo('template_url'); ?>/img/icons/icon-fb.svg" alt=""></a> 
+				<a href="<?php echo get_theme_mod('linkedin'); ?>"><img src="<?php bloginfo('template_url'); ?>/img/icons/icons-linkedin.svg" alt=""></a>
 			</p>
 			<p class="fidback_button">Обратная связь</p>
 		</div>
@@ -33,7 +33,7 @@
 </div>
 <!-- footer -->
 <footer>
-	<p class="context">2018 все права защищены</p>
+	<p class="context"><?php echo get_theme_mod('footer_text'); ?></p>
 </footer>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
